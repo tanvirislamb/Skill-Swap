@@ -1,0 +1,122 @@
+[
+    {
+        "skillId": 1,
+        "skillName": "Beginner Guitar Lessons",
+        "providerName": "Alex Martin",
+        "providerEmail": "alex@skillswap.com",
+        "price": 20,
+        "rating": 4.8,
+        "slotsAvailable": 3,
+        "description": "Acoustic guitar classes for complete beginners focusing on chords, rhythm, and basic songs.",
+        "image": "https://media.istockphoto.com/id/1363411424/photo/smiling-young-man-playing-an-acoustic-guitar.jpg?s=612x612&w=0&k=20&c=N_caQ5y0CXdglRXYHeU8iaopiJSVo86qA_GM6F3e-V4=",
+        "category": "Music"
+    },
+    {
+        "skillId": 2,
+        "skillName": "Spoken English Practice",
+        "providerName": "Sara Hossain",
+        "providerEmail": "sara@skillswap.com",
+        "price": 10,
+        "rating": 4.6,
+        "slotsAvailable": 5,
+        "description": "Conversational English sessions designed for non-native speakers to improve fluency and pronunciation.",
+        "image": "https://storage.googleapis.com/schoolnet-content/blog/wp-content/uploads/2021/12/How-to-Improve-your-spoken-English-1-1.jpg",
+        "category": "Language"
+    },
+    {
+        "skillId": 3,
+        "skillName": "Basic Web Development",
+        "providerName": "Tanvir Islam",
+        "providerEmail": "tanvir@skillswap.com",
+        "price": 25,
+        "rating": 4.9,
+        "slotsAvailable": 4,
+        "description": "Learn to build and deploy responsive websites using HTML, CSS, and JavaScript.",
+        "image": "https://web.programming-hero.com/thumbnail.png",
+        "category": "Technology"
+    },
+    {
+        "skillId": 4,
+        "skillName": "Digital Photography",
+        "providerName": "Lina Chowdhury",
+        "providerEmail": "lina@skillswap.com",
+        "price": 18,
+        "rating": 4.7,
+        "slotsAvailable": 2,
+        "description": "Master the basics of DSLR photography, lighting, and composition.",
+        "image": "https://www.pix-star.com/blog/wp-content/uploads/2021/05/digital-photo-frames.jpg",
+        "category": "Art"
+    },
+    {
+        "skillId": 5,
+        "skillName": "Cooking Traditional Bengali Dishes",
+        "providerName": "Rafiq Ahmed",
+        "providerEmail": "rafiq@skillswap.com",
+        "price": 15,
+        "rating": 4.5,
+        "slotsAvailable": 6,
+        "description": "Learn to prepare authentic Bengali cuisine including fish curry, khichuri, and sweets.",
+        "image": "https://www.mysticbengal.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdaxj3l4ed%2Fimage%2Fupload%2Fv1724997381%2Fwdo3iivks0vph59qvxds.png&w=1920&q=75",
+        "category": "Cooking"
+    },
+    {
+        "skillId": 6,
+        "skillName": "Graphic Design with Canva",
+        "providerName": "Maya Sen",
+        "providerEmail": "maya@skillswap.com",
+        "price": 12,
+        "rating": 4.4,
+        "slotsAvailable": 7,
+        "description": "Create stunning social media posts, posters, and resumes using Canva.",
+        "image": "https://mondo.com/wp-content/uploads/2022/12/does-canva-take-the-place-of-a-graphic-designer-2022.jpg-.jpg",
+        "category": "Design"
+    },
+    {
+        "skillId": 7,
+        "skillName": "Python for Beginners",
+        "providerName": "Arif Rahman",
+        "providerEmail": "arif@skillswap.com",
+        "price": 22,
+        "rating": 4.8,
+        "slotsAvailable": 5,
+        "description": "Start coding with Python and learn data structures, functions, and simple projects.",
+        "image": "https://www.analytixlabs.co.in/wp-content/uploads/2024/06/python-for-beginners.webp",
+        "category": "Programming"
+    },
+    {
+        "skillId": 8,
+        "skillName": "Yoga and Meditation",
+        "providerName": "Taposhi Rabeya",
+        "providerEmail": "taposhi@skillswap.com",
+        "price": 8,
+        "rating": 4.9,
+        "slotsAvailable": 10,
+        "description": "Daily morning yoga and meditation sessions to improve focus and mental peace.",
+        "image": "https://malibuwellnessranch.com/wp-content/uploads/2023/03/yoga-and-mindfulness-as-tools-in-recovery-.jpeg",
+        "category": "Health"
+    },
+    {
+        "skillId": 9,
+        "skillName": "Creative Writing Workshop",
+        "providerName": "Anika Haque",
+        "providerEmail": "anika@skillswap.com",
+        "price": 14,
+        "rating": 4.3,
+        "slotsAvailable": 3,
+        "description": "Enhance your storytelling and writing style through practical creative writing sessions.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfycJALZp-TXJTSU1JQbJbEosOZTvPjBT0jg&s",
+        "category": "Literature"
+    },
+    {
+        "skillId": 10,
+        "skillName": "Mobile App UI/UX Design",
+        "providerName": "Samiul Karim",
+        "providerEmail": "samiul@skillswap.com",
+        "price": 30,
+        "rating": 4.9,
+        "slotsAvailable": 2,
+        "description": "Learn to design intuitive mobile app interfaces using Figma and design principles.",
+        "image": "https://res.cloudinary.com/upwork-cloud/image/upload/c_scale,w_1000/v1709874666/catalog/1425829754167447552/jualcmljlawmppfnginu.webp",
+        "category": "Design"
+    }
+]
