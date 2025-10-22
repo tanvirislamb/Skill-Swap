@@ -3,6 +3,8 @@ import Home from "../Pages/Home";
 import Homepage from "../Pages/Homepage";
 import { Component } from "react";
 import Details from "../Pages/Details";
+import SignIn from "../Pages/Signin";
+import SignUp from "../Pages/Signup";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +19,14 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 Component: Details
+            },
+            {
+                path: '/signin',
+                Component: SignIn
+            },
+            {
+                path: '/signup',
+                Component: SignUp
             }
         ]
     }

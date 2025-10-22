@@ -6,7 +6,7 @@ export default function Carts({ eachData }) {
     const { skillName, image, price, rating, skillId } = eachData;
 
     return (
-        <div className="bg-white rounded-md overflow-hidden shadow-md">
+        <div className="bg-white rounded-xl overflow-hidden shadow-xl">
             <img src={image} alt="" className="w-full h-55 object-cover" />
             <div className="px-4 pt-2 pb-4 space-y-2">
                 <p className="font-medium">{skillName}</p>
@@ -17,7 +17,10 @@ export default function Carts({ eachData }) {
                         <p>{rating}</p>
                     </div>
                 </div>
-                <button className="bg-teal-600 hover:bg-teal-700 duration-300 text-white py-1 w-full rounded-md font-medium"> <Link to={`/details/${skillId}`}>View Details</Link></button>
+                <Link to={`/details/${skillId}`}
+                    className="bg-teal-600 hover:bg-teal-700 duration-300 block text-white py-1 text-center w-full rounded-md font-medium"
+                >View Details
+                </Link>
             </div>
         </div>
     )
