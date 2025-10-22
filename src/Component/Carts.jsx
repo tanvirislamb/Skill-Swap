@@ -1,17 +1,23 @@
+import { FaStar } from "react-icons/fa";
+import { Link } from "react-router";
+
 export default function Carts({ eachData }) {
 
-    const { skillName, image, price, rating } = eachData;
+    const { skillName, image, price, rating, skillId } = eachData;
 
     return (
         <div className="bg-white rounded-md overflow-hidden shadow-md">
             <img src={image} alt="" className="w-full h-55 object-cover" />
             <div className="px-4 pt-2 pb-4 space-y-2">
                 <p className="font-medium">{skillName}</p>
-                <div className="flex justify-between items-center text-sm">
+                <div className="flex justify-between items-center text-sm text-teal-600">
                     <p>${price}</p>
-                    <p>{rating}</p>
+                    <div className="flex items-center gap-1">
+                        <FaStar className="text-yellow-500"></FaStar>
+                        <p>{rating}</p>
+                    </div>
                 </div>
-                <button className="bg-teal-600 text-white py-1 w-full rounded-md font-medium">View Details</button>
+                <button className="bg-teal-600 hover:bg-teal-700 duration-300 text-white py-1 w-full rounded-md font-medium"> <Link to={`/details/${skillId}`}>View Details</Link></button>
             </div>
         </div>
     )
