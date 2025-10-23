@@ -5,6 +5,7 @@ import { Component } from "react";
 import Details from "../Pages/Details";
 import SignIn from "../Pages/Signin";
 import SignUp from "../Pages/Signup";
+import Profile from "../Pages/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 Component: SignUp
+            },
+            {
+                path:'/profile',
+                Component:Profile
             }
         ]
     }

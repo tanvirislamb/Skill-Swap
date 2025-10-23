@@ -27,6 +27,15 @@ const slides = [
         image: photo3
     }
 ];
+const Step = ({ icon, title, description }) => (
+    <div className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div className="flex items-center justify-center h-16 w-16 rounded-full bg-teal-100 text-teal-600 mx-auto text-3xl">
+            {icon}
+        </div>
+        <h3 className="text-xl font-bold text-gray-800 mt-6">{title}</h3>
+        <p className="text-gray-600 mt-2">{description}</p>
+    </div>
+);
 
 export default function Homepage() {
     return (
@@ -67,6 +76,32 @@ export default function Homepage() {
             <div className="flex justify-center  max-w-[1800px] mx-auto">
                 <Allcart></Allcart>
             </div>
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl font-bold text-gray-800">How It Works</h2>
+                        <p className="mt-2 text-lg text-gray-600">Start your skill-sharing journey in three simple steps.</p>
+                        <div className="mt-4 w-24 h-1 bg-teal-500 mx-auto"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <Step
+                            icon="🔍"
+                            title="Find a Skill"
+                            description="Browse our diverse categories or search for a specific skill you want to learn."
+                        />
+                        <Step
+                            icon="📅"
+                            title="Book a Session"
+                            description="Choose a provider, pick a suitable time, and book your session in just a few clicks."
+                        />
+                        <Step
+                            icon="🎓"
+                            title="Learn & Grow"
+                            description="Attend your session, learn from an expert, and expand your horizons. It's that simple!"
+                        />
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
