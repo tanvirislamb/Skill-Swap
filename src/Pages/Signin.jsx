@@ -1,19 +1,24 @@
 import { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export default function SignIn() {
 
     const { letuserlogin, setUser } = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate()
 
     const handlesignin = (e) => {
         e.preventDefault()
+
+
         const email = e.target.email.value;
         const password = e.target.Password.value;
         letuserlogin(email, password)
             .then((result) => {
                 const user = result.user
                 setUser(user)
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
                 console.error(error.message)

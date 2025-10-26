@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-
 import photo1 from "../assets/1.jpg";
 import photo2 from "../assets/2.jpg";
 import photo3 from "../assets/3.jpg";

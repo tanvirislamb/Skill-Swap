@@ -1,5 +1,5 @@
 import { use, useContext } from "react";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 
 export default function SignUp() {
@@ -14,6 +14,7 @@ export default function SignUp() {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                return <Navigate to='/'></Navigate>
             })
             .catch((error) => {
                 console.error("Error:", error.message);
