@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 export default function SignUp() {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, setUser } = useContext(AuthContext)
     const handlesignup = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -13,6 +13,7 @@ export default function SignUp() {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
+                setUser(user);
             })
             .catch((error) => {
                 console.error("Error:", error.message);

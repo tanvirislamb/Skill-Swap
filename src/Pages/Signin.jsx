@@ -14,7 +14,6 @@ export default function SignIn() {
             .then((result) => {
                 const user = result.user
                 setUser(user)
-                console.log(user)
             })
             .catch((error) => {
                 console.error(error.message)
