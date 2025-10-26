@@ -4,7 +4,6 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoPersonCircle } from "react-icons/io5";
 
-
 export default function Navber() {
 
     const { user, letUserSignOut } = useContext(AuthContext)
@@ -32,7 +31,13 @@ export default function Navber() {
                     user ? <div className="flex items-center gap-6">
                         <NavLink to='/profile' className={`font-medium`}>Profile</NavLink>
                         <div className="flex items-center gap-4">
-                            <IoPersonCircle className="text-4xl text-teal-600"></IoPersonCircle>
+                            {
+                                user && user?.photoURL ? <div>
+                                    <img src={user.photoURL} className="w-9 h-9 rounded-full object-cover" alt="" />
+                                </div> :
+                                    <IoPersonCircle className="text-4xl text-teal-600"></IoPersonCircle>
+                            }
+
                             <button onClick={handleLogout} className="bg-teal-600 rounded-md px-3 py-[4px] text-white font-medium cursor-pointer">Log Out</button>
                         </div>
                     </div> :

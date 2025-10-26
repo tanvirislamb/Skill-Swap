@@ -13,7 +13,7 @@ export default function SignIn() {
 
 
         const email = e.target.email.value;
-        const password = e.target.Password.value;
+        const password = e.target.password.value;
         letuserlogin(email, password)
             .then((result) => {
                 const user = result.user
@@ -26,17 +26,89 @@ export default function SignIn() {
     }
 
     return (
-        <div>
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <title>Skills Swap | Sign In</title>
-            <div className="max-w-md mx-auto bg-white mt-20 px-10 py-15 rounded-xl shadow-lg">
-                <p className="text-teal-600 font-semibold text-center text-2xl pb-4">Sign In</p>
-                <form onSubmit={handlesignin} className="flex justify-center items-center flex-col gap-4">
-                    <input type="email" name="email" placeholder="Email" className="py-2 px-2 border-teal-600 border-1 rounded-xl w-full"></input>
-                    <input type="Password" name="Password" placeholder="Password" className="py-2 px-2 border-teal-600 border-1 rounded-xl w-full"></input>
-                    <input type="submit" value="Sign In" className="py-2 px-2 bg-teal-600 rounded-xl text-white font-medium w-full" />
+
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 sm:p-10">
+                <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">
+                    Sign in to your account
+                </h2>
+
+                <form onSubmit={handlesignin} className="space-y-5">
+                    <div>
+                        <label className="block text-sm font-medium text-gray-600 mb-1">
+                            Email address
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-sm font-medium text-gray-600 mb-1">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
+                        />
+                    </div>
+
+                    <div className="flex justify-between items-center text-sm">
+                        <Link
+                            to="/forgot-password"
+                            className="text-teal-600 hover:underline font-medium"
+                        >
+                            Forgot your password?
+                        </Link>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full py-2 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition duration-200"
+                    >
+                        Sign in
+                    </button>
                 </form>
-                <div className="flex items-center gap-1 text-sm pt-4"><p>Don't have an account?</p><Link to='/signup' className="text-teal-600">Sign Up</Link></div>
+
+
+                <div className="flex items-center my-6">
+                    <hr className="flex-grow border-gray-300" />
+                    <span className="mx-3 text-gray-500 text-sm">Or continue with</span>
+                    <hr className="flex-grow border-gray-300" />
+                </div>
+
+
+                <button
+
+                    className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 text-gray-700 hover:bg-gray-50 transition duration-200"
+                >
+                    <img
+                        src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                        alt="Google logo"
+                        className="w-5 h-5"
+                    />
+                    <span className="font-medium">Sign in with Google</span>
+                </button>
+
+                <div className="text-center text-sm text-gray-600 mt-6">
+                    Don’t have an account?{" "}
+                    <Link
+                        to="/signup"
+                        className="text-teal-600 font-medium hover:underline"
+                    >
+                        Sign up
+                    </Link>
+                </div>
             </div>
         </div>
+
     )
 }
