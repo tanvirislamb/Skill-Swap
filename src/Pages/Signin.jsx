@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 export default function SignIn() {
 
-    const { letuserlogin, setUser } = useContext(AuthContext);
+    const { letuserlogin, setUser, gglesignin } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -23,6 +23,15 @@ export default function SignIn() {
             .catch((error) => {
                 console.error(error.message)
             })
+    }
+
+    const signInwithGgle = () => {
+        gglesignin()
+            .then((userData) => {
+                setUser(userData.user)
+                navigate(`${location.state ? location.state : "/"}`)
+            })
+
     }
 
     return (
@@ -87,6 +96,7 @@ export default function SignIn() {
 
 
                 <button
+                    onClick={signInwithGgle}
 
                     className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 text-gray-700 hover:bg-gray-50 transition duration-200"
                 >

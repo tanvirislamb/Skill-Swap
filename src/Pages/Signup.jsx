@@ -4,7 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 export default function SignUp() {
 
-    const { createUser, setUser, updateUser } = useContext(AuthContext)
+    const { createUser, setUser, updateUser, gglesignin } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     const handlesignup = (e) => {
@@ -34,6 +34,15 @@ export default function SignUp() {
             });
 
     }
+
+    const siggnUpwithGgle = () => {
+        gglesignin()
+            .then((userData) => {
+                setUser(userData.user)
+                navigate("/")
+            })
+    }
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <title>Skills Swap | Sign Up</title>
@@ -112,7 +121,7 @@ export default function SignUp() {
                     <hr className="flex-grow border-gray-300" />
                 </div>
                 <button
-
+                    onClick={siggnUpwithGgle}
                     className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 text-gray-700 hover:bg-gray-50 transition duration-200"
                 >
                     <img
