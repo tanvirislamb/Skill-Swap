@@ -1,5 +1,4 @@
 # 🌻 SkillSwap – A Local Skill Exchange Platform  
-**Assignment Category:** Assignment-09_category_Sunflower  
 
 🚩 **Update Note:** All updates will be declared here.
 
