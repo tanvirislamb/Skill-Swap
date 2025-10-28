@@ -8,6 +8,8 @@ import photo1 from "../assets/1.jpg";
 import photo2 from "../assets/2.jpg";
 import photo3 from "../assets/3.jpg";
 import Allcart from "../Component/Allcart";
+import TopRatedProviders from "../Component/TopRatedProviders";
+import UserTestimonials from "../Component/UserTestimonials";
 
 const slides = [
     {
@@ -80,7 +82,7 @@ export default function Homepage() {
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold text-gray-800">How It Works</h2>
                         <p className="mt-2 text-lg text-gray-600">Start your skill-sharing journey in three simple steps.</p>
-                        <div className="mt-4 w-24 h-1 bg-teal-500 mx-auto"></div>
+                        <div className="mt-4 w-24 h-1 bg-teal-600 mx-auto rounded"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <Step
@@ -101,6 +103,12 @@ export default function Homepage() {
                     </div>
                 </div>
             </section>
+            <div>
+                <TopRatedProviders></TopRatedProviders>
+            </div>
+            <div>
+                <UserTestimonials></UserTestimonials>
+            </div>
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import Home from "../Pages/Home";
 import Homepage from "../Pages/Homepage";
-import { Component } from "react";
 import Details from "../Pages/Details";
 import SignIn from "../Pages/Signin";
 import SignUp from "../Pages/Signup";
