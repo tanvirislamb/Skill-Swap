@@ -18,7 +18,7 @@ export default function Navber() {
             text: "You will be logged out from your account.",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#14b8a6", // teal
+            confirmButtonColor: "#14b8a6", 
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, log out",
             cancelButtonText: "Cancel"

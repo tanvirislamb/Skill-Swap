@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import { useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 
 export default function PasswordReset() {
     const location = useLocation();

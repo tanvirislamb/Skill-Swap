@@ -24,7 +24,7 @@ export default function SignUp() {
         } else if (!/[a-z]/.test(value)) {
             setPasswordError("Password must contain at least one lowercase letter.");
         } else {
-            setPasswordError(""); // valid password
+            setPasswordError(""); 
         }
     };
 
