@@ -1,19 +1,41 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 export default function SignUp() {
 
     const { createUser, setUser, updateUser, gglesignin } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+
+    const [passwordError, setPasswordError] = useState("");
+    const [password, setPassword] = useState("");
+
+
+    const handlePasswordChange = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+
+        if (value.length < 6) {
+            setPasswordError("Password must be at least 6 characters long.");
+        } else if (!/[A-Z]/.test(value)) {
+            setPasswordError("Password must contain at least one uppercase letter.");
+        } else if (!/[a-z]/.test(value)) {
+            setPasswordError("Password must contain at least one lowercase letter.");
+        } else {
+            setPasswordError(""); // valid password
+        }
+    };
+
     const handlesignup = (e) => {
         e.preventDefault();
-
         const name = e.target.name.value;
         const image = e.target.image.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+
+        if (passwordError || !password) return;
 
         createUser(email, password)
             .then((result) => {
@@ -42,6 +64,9 @@ export default function SignUp() {
                 navigate("/")
             })
     }
+
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePassword = () => setShowPassword(!showPassword);
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-white md:bg-gray-50">
@@ -98,17 +123,36 @@ export default function SignUp() {
                         <label className="block text-sm font-medium text-gray-600 mb-1">
                             Password
                         </label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Create a password"
-                            required
-                            className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
-                        />
-                    </div>
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Enter your password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                                required
+                                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
+                            />
 
+                            <button
+                                type="button"
+                                onClick={togglePassword}
+                                className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-teal-600"
+                            >
+                                {showPassword ? (
+                                    <IoEyeOff className="text-xl" />
+                                ) : (
+                                    <IoEye className="text-xl" />
+                                )}
+                            </button>
+                        </div>
+                        {passwordError && (
+                            <p className="text-red-500 text-sm mt-1">{passwordError}</p>
+                        )}
+                    </div>
                     <button
                         type="submit"
+                        disabled={passwordError !== ""}
                         className="w-full py-2 bg-teal-600 text-white font-semibold rounded-xl hover:bg-teal-700 transition duration-200 shadow-md"
                     >
                         Sign Up

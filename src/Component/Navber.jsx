@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoPersonCircle } from "react-icons/io5";
 import '../index.css'
+import Swal from "sweetalert2";
 
 export default function Navber() {
 
@@ -11,14 +12,35 @@ export default function Navber() {
     const navigate = useNavigate()
 
     const handleLogout = () => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You will be logged out from your account.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#14b8a6", // teal
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, log out",
+            cancelButtonText: "Cancel"
+        })
         letUserSignOut()
             .then(() => {
-                alert("you logged out")
+                Swal.fire({
+                    title: "Logged Out!",
+                    text: "You have been successfully logged out.",
+                    icon: "success",
+                    confirmButtonColor: "#14b8a6"
+                });
                 navigate('/')
             })
             .catch((error) => {
-                alert(error)
-            })
+                Swal.fire({
+                    title: "Error!",
+                    text: error.message,
+                    icon: "error",
+                    confirmButtonColor: "#14b8a6"
+                });
+            });
     }
 
     return (

@@ -2,8 +2,13 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { useParams } from "react-router";
+import Swal from "sweetalert2";
+
 export default function Details() {
     const [detailsData, setDetailsData] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
     const { id } = useParams();
 
@@ -16,7 +21,32 @@ export default function Details() {
             })
     }, [id])
 
-    console.log(detailsData.skillName);
+    const handleBookClick = () => {
+        setIsModalOpen(true);
+    };
+    const handleModalSubmit = (e) => {
+        e.preventDefault();
+
+        if (!name || !email) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing information",
+                text: "Please enter both name and email.",
+            });
+            return;
+        }
+
+        setIsModalOpen(false);
+        setName("");
+        setEmail("");
+
+        Swal.fire({
+            icon: "success",
+            title: "Session Booked!",
+            text: `Your booking for ${detailsData.skillName} has been confirmed.`,
+            confirmButtonColor: "#0d9488",
+        });
+    };
 
     return (
         <div>
@@ -63,11 +93,55 @@ export default function Details() {
                             {detailsData.slotsAvailable}
                         </span>
                     </p>
-                    <button className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2.5 rounded-lg mt-4 font-semibold transition-all duration-300">
-                        Enroll Now
+                    <button
+                        onClick={handleBookClick}
+                        className="w-full bg-teal-600 hover:bg-teal-700 text-white py-2.5 rounded-lg mt-4 font-semibold transition-all duration-300">
+                        Book Session
                     </button>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-white/10 backdrop-blur-md flex justify-center items-center z-50">
+                    <div className="bg-white w-96 p-6 rounded-xl shadow-lg">
+                        <h3 className="text-xl font-semibold text-teal-600 mb-4 text-center">
+                            Book Session
+                        </h3>
+                        <form onSubmit={handleModalSubmit} className="space-y-4">
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Enter your name"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                            />
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Enter your email"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                            />
+                            <div className="flex justify-end gap-3 pt-3">
+                                <button
+                                    type="button"
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition"
+                                >
+                                    Confirm
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 }

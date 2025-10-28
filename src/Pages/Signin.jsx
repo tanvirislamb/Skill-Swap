@@ -1,17 +1,19 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 export default function SignIn() {
 
     const { letuserlogin, setUser, gglesignin } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
+    const [error, setError] = useState("")
+    const emailRef = useRef()
+
 
     const handlesignin = (e) => {
         e.preventDefault()
-
-
         const email = e.target.email.value;
         const password = e.target.password.value;
         letuserlogin(email, password)
@@ -21,7 +23,7 @@ export default function SignIn() {
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
-                console.error(error.message)
+                setError("Invalid email or password")
             })
     }
 
@@ -32,6 +34,14 @@ export default function SignIn() {
                 navigate(`${location.state ? location.state : "/"}`)
             })
 
+    }
+
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePassword = () => setShowPassword(!showPassword);
+
+    const handleReset = () => {
+        const emailforpass = emailRef.current.value;
+        navigate('/reset', { state: { emailforpass } })
     }
 
     return (
@@ -51,6 +61,7 @@ export default function SignIn() {
                         <input
                             type="email"
                             name="email"
+                            ref={emailRef}
                             placeholder="Enter your email"
                             required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
@@ -61,22 +72,37 @@ export default function SignIn() {
                         <label className="block text-sm font-medium text-gray-600 mb-1">
                             Password
                         </label>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            required
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
-                        />
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                                className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition duration-200"
+                            />
+
+                            <button
+                                type="button"
+                                onClick={togglePassword}
+                                className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-teal-600"
+                            >
+                                {showPassword ? (
+                                    <IoEyeOff className="text-xl" />
+                                ) : (
+                                    <IoEye className="text-xl" />
+                                )}
+                            </button>
+                        </div>
+                        <p className="text-red-500 text-sm mt-1">{error}</p>
                     </div>
 
                     <div className="flex justify-between items-center text-sm">
-                        <Link
-                            to="/forgot-password"
+                        <div
+                            onClick={handleReset}
                             className="text-teal-600 hover:underline font-medium"
                         >
                             Forgot your password?
-                        </Link>
+                        </div>
                     </div>
 
                     <button

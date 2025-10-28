@@ -6,6 +6,7 @@ import SignIn from "../Pages/Signin";
 import SignUp from "../Pages/Signup";
 import Profile from "../Pages/Profile";
 import Private from "../Provider/Privateroute";
+import PasswordReset from "../Pages/PasswordReset";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
                 element: <Private>
                     <Profile></Profile>
                 </Private>
+            },
+            {
+                path: 'reset',
+                Component: PasswordReset
             }
         ]
     }
