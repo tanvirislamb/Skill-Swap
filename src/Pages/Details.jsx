@@ -21,7 +21,7 @@ export default function Details() {
     return (
         <div>
             <title>Skills Swap | Details</title>
-            <div className="max-w-7xl mx-auto my-20 flex justify-center items-center bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="max-w-6xl mx-auto lg:my-20 flex flex-col lg:flex-row justify-center items-center bg-white lg:rounded-2xl lg:shadow-lg overflow-hidden">
                 <div className="h-full w-full overflow-hidden">
                     <img
                         src={detailsData.image}

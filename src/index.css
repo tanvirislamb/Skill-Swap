@@ -2,14 +2,11 @@
 @plugin "daisyui";
 
 
-/* Custom styles for the Swiper component */
 .custom-swiper .swiper-button-next,
 .custom-swiper .swiper-button-prev {
-    /* Sets the color for the navigation arrows */
-    color: #0d9488 !important; /* Tailwind's teal-600 */
+    color: #0d9488 !important;
 }
 
 .custom-swiper .swiper-pagination-bullet-active {
-    /* Sets the background for the active pagination dot */
-    background: #0d9488 !important; /* Tailwind's teal-600 */
+    background: #0d9488 !important;
 }

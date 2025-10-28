@@ -35,10 +35,10 @@ export default function SignIn() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-white md:bg-gray-50">
             <title>Skills Swap | Sign In</title>
 
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 sm:p-10">
+            <div className="w-full max-w-md bg-white rounded-2xl md:shadow-xl p-8 sm:p-10">
                 <h2 className="text-3xl font-extrabold text-center text-gray-900 mb-6">
                     Sign in to your account
                 </h2>

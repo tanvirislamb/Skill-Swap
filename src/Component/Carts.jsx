@@ -6,7 +6,7 @@ export default function Carts({ eachData }) {
     const { skillName, image, price, rating, skillId } = eachData;
 
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-lg">
+        <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl hover:scale-101 duration-300">
             <img src={image} alt="" className="w-full h-55 object-cover" />
             <div className="px-4 pt-2 pb-4 space-y-2">
                 <p className="font-medium">{skillName}</p>

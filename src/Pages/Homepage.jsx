@@ -41,7 +41,7 @@ const Step = ({ icon, title, description }) => (
 export default function Homepage() {
     return (
         <div>
-            <div className="py-10 px-15 bg">
+            <div className="py-5 md:py-10 px-5 md:px-15">
                 <Swiper
                     className="custom-swiper"
                     modules={[Navigation, Pagination, Autoplay, EffectFade]}
@@ -55,17 +55,17 @@ export default function Homepage() {
                 >
                     {slides.map((slide, index) => (
                         <SwiperSlide key={index}>
-                            <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+                            <div className="relative w-full h-[200px] md:h-[500px] rounded-2xl overflow-hidden">
                                 <img
                                     src={slide.image}
                                     alt={slide.title}
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 bg-[#0000006e]  flex flex-col items-center justify-center text-center p-4">
-                                    <h1 className="text-white text-3xl md:text-5xl font-bold mb-4">
+                                    <h1 className="text-white text-2xl md:text-5xl font-bold mb-4">
                                         {slide.title}
                                     </h1>
-                                    <p className="text-slate-200 text-lg md:text-xl max-w-2xl">
+                                    <p className="text-slate-200 text-sm md:text-xl max-w-2xl">
                                         {slide.subtitle}
                                     </p>
                                 </div>

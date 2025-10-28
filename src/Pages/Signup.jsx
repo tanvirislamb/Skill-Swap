@@ -44,10 +44,10 @@ export default function SignUp() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-white md:bg-gray-50">
             <title>Skills Swap | Sign Up</title>
 
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 sm:p-10">
+            <div className="w-full max-w-md bg-white rounded-2xl md:shadow-xl p-8 sm:p-10">
                 <h2 className="text-3xl font-bold text-center text-teal-600 mb-6">
                     Create an Account
                 </h2>

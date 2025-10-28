@@ -19,7 +19,7 @@ export default function Allcart() {
             <div className="flex justify-center pb-8">
                 <div className="h-1 w-40 bg-teal-600 rounded"></div>
             </div>
-            <div className="grid grid-cols-4 gap-10 mx-25">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mx-5 lg:mx-25">
                 {
                     cartData.map((eachData, index) => <Carts key={index} eachData={eachData}></Carts>)
                 }
